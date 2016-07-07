@@ -203,7 +203,8 @@ class Resolver(object):
 
         # NOTE: We need to compare RequirementSummary objects, since
         # InstallRequirement does not define equality
-        diff = {RequirementSummary(t) for t in theirs} - {RequirementSummary(t) for t in self.their_constraints}
+        diff = {RequirementSummary(t) for t in theirs} - \
+            {RequirementSummary(t) for t in self.their_constraints}
         removed = ({RequirementSummary(t) for t in self.their_constraints} -
                    {RequirementSummary(t) for t in theirs})
         unsafe = ({RequirementSummary(t) for t in unsafe_constraints} -
